@@ -1,6 +1,6 @@
 salary = int(input("Enter your salary:"))
 
-service_yrs = eval(input("Enter Years of service:"))
+service_yrs = int(input("Enter Years of service:"))
 
 if service_yrs > 5:
 
