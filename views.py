@@ -219,12 +219,14 @@ def deactivate_user(request):
             "status":"failed"
         },
         status = status.HTTP_401_UNAUTHORIZED)
+        
+        
 
 @api_view(['POST'])
 def user_detail_view(request):
     try:
         userData = json.loads(request.body)
-        fname = userData.get("first_name", "").strip()
+        fname = userData.get("first_name" )
         
         if not fname:
             return JsonResponse({
@@ -232,7 +234,7 @@ def user_detail_view(request):
                 "data": "No Data Passed"
             }, status=status.HTTP_400_BAD_REQUEST)
 
-        min_similarity = 0.4  # Adjust the similarity threshold as needed
+        min_similarity = 0.4 # Adjust the similarity threshold as needed
         matching_users = []
 
         users = User.objects.all()
